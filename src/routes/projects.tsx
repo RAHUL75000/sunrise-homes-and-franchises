@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
+import bhivandi from "@/assets/bhivandi.jpg";
+import ulhasnagar from "@/assets/ulhasnagar.jpg";
 import { PageHeader, SiteLayout } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/projects")({
@@ -15,8 +16,8 @@ export const Route = createFileRoute("/projects")({
 });
 
 const projects = [
-  { name: "Bhivandi", flats: "2,000" },
-  { name: "Ulhasnagar", flats: "500" },
+  { name: "Bhivandi", flats: "2,000", img: bhivandi },
+  { name: "Ulhasnagar", flats: "500", img: ulhasnagar },
 ];
 
 function Projects() {
@@ -26,7 +27,7 @@ function Projects() {
       <section className="mx-auto max-w-7xl px-6 py-20 space-y-16">
         {projects.map((p, i) => (
           <article key={p.name} className="grid md:grid-cols-2 gap-10 items-center">
-            <img src={hero} alt={`${p.name} project`} loading="lazy" width={1600} height={912} className={`rounded shadow-card w-full aspect-[4/3] object-cover ${i % 2 ? "md:order-2" : ""}`} />
+            <img src={p.img} alt={`${p.name} project`} loading="lazy" width={1200} height={912} className={`rounded shadow-card w-full aspect-[4/3] object-cover ${i % 2 ? "md:order-2" : ""}`} />
             <div>
               <p className="text-accent text-xs uppercase tracking-[0.3em] font-semibold">Project {i + 1}</p>
               <h2 className="mt-2 text-5xl">{p.name}</h2>
