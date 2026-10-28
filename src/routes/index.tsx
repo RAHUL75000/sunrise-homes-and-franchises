@@ -76,13 +76,13 @@ function Home() {
         <div className="absolute inset-0 bg-hero-fade" />
         <div className="relative mx-auto max-w-7xl px-6 w-full text-primary-foreground">
           <p className="text-accent text-xs uppercase tracking-[0.3em] animate-rise">Kalyan · Bhivandi · Ulhasnagar</p>
-          <h1 className="mt-5 text-5xl md:text-7xl max-w-3xl leading-[1.05] animate-rise [animation-delay:150ms]">
+          <h1 className="mt-5 text-4xl sm:text-5xl md:text-7xl max-w-3xl leading-[1.05] animate-rise [animation-delay:150ms]">
             Your home. Your <span className="text-sunrise italic">growth</span>.
           </h1>
           <p className="mt-6 max-w-xl text-lg opacity-85 animate-rise [animation-delay:300ms]">
             Affordable 1 & 2 BHK homes — and real estate opportunities that help your money grow.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3 animate-rise [animation-delay:450ms]">
+          <div className="mt-9 flex flex-col sm:flex-row gap-3 animate-rise [animation-delay:450ms]">
             <Link to="/projects" className="bg-sunrise text-accent-foreground px-6 py-3 font-semibold rounded lift">View projects</Link>
             <Link to="/franchise" className="border border-primary-foreground/40 px-6 py-3 font-semibold rounded lift">Become a franchise partner</Link>
           </div>
@@ -90,10 +90,10 @@ function Home() {
       </section>
 
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map(([v, s, l]) => (
             <div key={l}>
-              <p className="font-display text-4xl text-sunrise"><Counter to={v} suffix={s} /></p>
+              <p className="font-display text-3xl sm:text-4xl text-sunrise"><Counter to={v} suffix={s} /></p>
               <p className="mt-1 text-sm opacity-70">{l}</p>
             </div>
           ))}
@@ -101,8 +101,8 @@ function Home() {
       </section>
 
       {/* Featured residences */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <Reveal><Eyebrow>Featured residences</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">Homes priced for families</h2></Reveal>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
+        <Reveal><Eyebrow>Featured residences</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Homes priced for families</h2></Reveal>
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           {[
             ["Bhivandi", "2,000 flats", bhivandi],
@@ -113,7 +113,7 @@ function Home() {
                 <div className="overflow-hidden aspect-[4/3]">
                   <img src={img} alt={`${t} project`} loading="lazy" width={1200} height={912} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
-                <div className="p-8 flex items-end justify-between gap-4">
+                <div className="p-5 sm:p-8 flex items-end justify-between gap-4">
                   <div>
                     <p className="text-sm text-muted-foreground">{f}</p>
                     <p className="font-display text-3xl mt-1">{t}</p>
@@ -129,8 +129,8 @@ function Home() {
 
       {/* Why choose */}
       <section className="bg-secondary">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <Reveal><Eyebrow>Why families choose us</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl max-w-2xl">Built on trust, delivered with care</h2></Reveal>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
+          <Reveal><Eyebrow>Why families choose us</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl max-w-2xl">Built on trust, delivered with care</h2></Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {why.map(([t, d], i) => (
               <Reveal key={t} delay={i * 100}>
@@ -147,21 +147,21 @@ function Home() {
 
       {/* Amenities marquee */}
       <section className="py-24 overflow-hidden">
-        <Reveal className="mx-auto max-w-7xl px-6"><Eyebrow>Amenities</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">Every detail, designed for living</h2></Reveal>
+        <Reveal className="mx-auto max-w-7xl px-6"><Eyebrow>Amenities</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Every detail, designed for living</h2></Reveal>
         <div className="mt-12 flex w-max animate-marquee gap-4">
           {[...amenities, ...amenities].map((a, i) => (
-            <span key={i} className="whitespace-nowrap border rounded-full px-8 py-4 font-display text-2xl">{a}</span>
+            <span key={i} className="whitespace-nowrap border rounded-full px-5 py-3 sm:px-8 sm:py-4 font-display text-lg sm:text-2xl">{a}</span>
           ))}
         </div>
       </section>
 
       {/* Investment */}
       <section className="bg-secondary">
-        <div className="mx-auto max-w-7xl px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 grid md:grid-cols-2 gap-14 items-center">
           <Reveal><img src={interior} alt="Family in a bright apartment living room" loading="lazy" width={1200} height={912} className="rounded shadow-card w-full" /></Reveal>
           <Reveal delay={150}>
             <Eyebrow>Why real estate</Eyebrow>
-            <h2 className="mt-3 text-4xl md:text-5xl">Grow your money with something real</h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Grow your money with something real</h2>
             <p className="mt-5 text-muted-foreground">
               Few options grow wealth as steadily as property. With Sunrise Bold Infra, you can earn 10% profit on area-wise
               bookings and 5% annual interest on your deposit — with all advertising paid by the company.
@@ -172,10 +172,10 @@ function Home() {
       </section>
 
       {/* Connectivity */}
-      <section className="mx-auto max-w-7xl px-6 py-24 grid lg:grid-cols-2 gap-14">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-14">
         <Reveal>
           <Eyebrow>Connectivity</Eyebrow>
-          <h2 className="mt-3 text-4xl md:text-5xl">An address close to everything</h2>
+          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">An address close to everything</h2>
           <p className="mt-5 text-muted-foreground">Our projects sit in the heart of the Kalyan region, with easy access to railway, highway and daily needs.</p>
         </Reveal>
         <ul className="divide-y border-y">
@@ -189,8 +189,8 @@ function Home() {
 
       {/* Steps */}
       <section className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <Reveal><Eyebrow>How it works</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">Four steps to your new home</h2></Reveal>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
+          <Reveal><Eyebrow>How it works</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Four steps to your new home</h2></Reveal>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map(([n, t, d], i) => (
               <Reveal key={n} delay={i * 120}>
@@ -204,13 +204,13 @@ function Home() {
       </section>
 
       {/* Locations */}
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <Reveal><Eyebrow>Our presence</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">Where we build</h2></Reveal>
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
+        <Reveal><Eyebrow>Our presence</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Where we build</h2></Reveal>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-px bg-border border">
           {locations.map((l, i) => (
             <Reveal key={l} delay={i * 60} className="bg-background">
-              <div className="p-8 transition-colors hover:bg-secondary">
-                <p className="font-display text-2xl">{l}</p>
+              <div className="p-5 sm:p-8 transition-colors hover:bg-secondary">
+                <p className="font-display text-xl sm:text-2xl">{l}</p>
                 <p className="text-sm text-muted-foreground mt-1">{["Bhivandi", "Ulhasnagar"].includes(l) ? "Project live" : "Kalyan region"}</p>
               </div>
             </Reveal>
@@ -220,8 +220,8 @@ function Home() {
 
       {/* Testimonials */}
       <section className="bg-secondary">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <Reveal><Eyebrow>Voices from our community</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">What our customers say</h2></Reveal>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
+          <Reveal><Eyebrow>Voices from our community</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">What our customers say</h2></Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {testimonials.map(([n, p, q], i) => (
               <Reveal key={n} delay={i * 120}>
@@ -237,8 +237,8 @@ function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-3xl px-6 py-24">
-        <Reveal><Eyebrow>Have questions?</Eyebrow><h2 className="mt-3 text-4xl md:text-5xl">Ask away</h2></Reveal>
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 py-16 md:py-24">
+        <Reveal><Eyebrow>Have questions?</Eyebrow><h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl">Ask away</h2></Reveal>
         <Accordion type="single" collapsible className="mt-10">
           {faqs.map(([q, a]) => (
             <AccordionItem key={q} value={q}>
@@ -251,9 +251,9 @@ function Home() {
 
       {/* CTA */}
       <section className="bg-sunrise">
-        <Reveal className="mx-auto max-w-7xl px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-6 text-accent-foreground">
-          <h2 className="text-4xl md:text-5xl max-w-2xl">Start the conversation today</h2>
-          <Link to="/contact" className="bg-primary text-primary-foreground px-8 py-4 rounded font-semibold lift">Book a site visit</Link>
+        <Reveal className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-6 py-14 md:py-20 flex flex-col md:flex-row items-center justify-between gap-6 text-accent-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl max-w-2xl">Start the conversation today</h2>
+          <Link to="/contact" className="bg-primary text-primary-foreground px-8 py-4 rounded font-semibold lift w-full md:w-auto text-center">Book a site visit</Link>
         </Reveal>
       </section>
     </SiteLayout>

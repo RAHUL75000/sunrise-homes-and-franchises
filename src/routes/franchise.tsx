@@ -23,9 +23,9 @@ function Franchise() {
   return (
     <SiteLayout>
       <PageHeader eyebrow="Franchise" title="Own the territory. Share the growth." text="Every franchise earns 10% profit on area-wise bookings and 5% annual interest on deposit. Advertising is paid by the company." />
-      <section className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-6 py-14 md:py-20 grid md:grid-cols-3 gap-6">
         {tiers.map((t) => (
-          <div key={t.name} className={`p-10 rounded shadow-card ${t.featured ? "bg-primary text-primary-foreground" : "bg-card"}`}>
+          <div key={t.name} className={`p-6 sm:p-10 rounded shadow-card ${t.featured ? "bg-primary text-primary-foreground" : "bg-card"}`}>
             <p className="text-xs uppercase tracking-widest text-accent font-semibold">{t.note}</p>
             <h3 className="mt-3 text-2xl">{t.name}</h3>
             <p className="mt-6 font-display text-5xl text-sunrise">{t.price}</p>
