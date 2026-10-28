@@ -57,7 +57,7 @@ const testimonials = [
   ["Amit Shinde", "Franchise Partner, Titwala", "The 5% interest and company-paid advertising made the franchise an easy decision."],
 ];
 
-const faqs = [
+const faqs: [string, string][] = [
   ["What are the flat prices?", "1 BHK flats are ₹30–35 lakh and 2 BHK flats are ₹40–45 lakh in Bhivandi and Ulhasnagar."],
   ["Is home loan help available?", "Yes, our team helps you apply for a home loan with leading banks."],
   ["How does the franchise work?", "You take one area (one Tehsil or district) with a deposit. You earn 10% profit on bookings in your area plus 5% yearly interest on your deposit."],
