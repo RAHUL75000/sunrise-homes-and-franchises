@@ -92,3 +92,18 @@ export function PageHeader({ eyebrow, title, text }: { eyebrow: string; title: s
     </section>
   );
 }
+
+export function Eyebrow({ children }: { children: string }) {
+  return <p className="text-accent text-xs uppercase tracking-[0.3em] font-semibold">{children}</p>;
+}
+
+export function CtaBand({ title, label = "Book a site visit" }: { title: string; label?: string }) {
+  return (
+    <section className="bg-sunrise">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-20 flex flex-col md:flex-row items-center justify-between gap-6 text-accent-foreground">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl max-w-2xl text-center md:text-left">{title}</h2>
+        <Link to="/contact" className="bg-primary text-primary-foreground px-8 py-4 rounded font-semibold lift w-full md:w-auto text-center">{label}</Link>
+      </div>
+    </section>
+  );
+}
