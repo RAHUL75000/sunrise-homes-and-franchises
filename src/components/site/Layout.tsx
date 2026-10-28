@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -18,13 +19,14 @@ export const contact = {
 };
 
 export function SiteLayout({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-clip">
       <header className="sticky top-0 z-40 bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between gap-4">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="h-8 w-8 rounded-full bg-sunrise" />
-            <span className="font-display text-xl">Sunrise Bold Infra</span>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+          <Link to="/" className="flex min-w-0 items-center gap-2">
+            <span className="h-8 w-8 shrink-0 rounded-full bg-sunrise" />
+            <span className="font-display text-lg sm:text-xl truncate">Sunrise Bold Infra</span>
           </Link>
           <nav className="hidden md:flex gap-7 text-sm">
             {nav.map((n) => (
@@ -33,21 +35,27 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <Link to="/contact" className="bg-sunrise text-accent-foreground px-4 py-2 text-sm font-semibold rounded">
-            Enquire
-          </Link>
+          <div className="flex shrink-0 items-center gap-2">
+            <Link to="/contact" className="hidden sm:inline-block bg-sunrise text-accent-foreground px-4 py-2 text-sm font-semibold rounded">
+              Enquire
+            </Link>
+            <button aria-label="Menu" onClick={() => setOpen(!open)} className="md:hidden p-2">
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
-        <nav className="md:hidden flex gap-5 overflow-x-auto px-6 pb-3 text-sm">
+        <nav className={`md:hidden flex-col border-t border-primary-foreground/10 px-4 pb-4 ${open ? "flex" : "hidden"}`}>
           {nav.map((n) => (
-            <Link key={n.to} to={n.to} className="opacity-80 whitespace-nowrap" activeProps={{ className: "text-accent opacity-100" }} activeOptions={{ exact: true }}>
+            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="py-3 border-b border-primary-foreground/10 text-base opacity-90" activeProps={{ className: "text-accent opacity-100" }} activeOptions={{ exact: true }}>
               {n.label}
             </Link>
           ))}
+          <Link to="/contact" onClick={() => setOpen(false)} className="mt-4 bg-sunrise text-accent-foreground py-3 text-center font-semibold rounded">Enquire now</Link>
         </nav>
       </header>
       <main className="flex-1">{children}</main>
       <footer className="bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-3">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-3">
           <div>
             <p className="font-display text-2xl">Sunrise Bold Infra</p>
             <p className="mt-3 text-sm opacity-70">An emerging real estate developer in the Kalyan region, building affordable homes and growth opportunities.</p>
@@ -76,9 +84,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 export function PageHeader({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return (
     <section className="bg-primary text-primary-foreground">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-6 py-14 md:py-20">
         <p className="text-accent text-xs uppercase tracking-[0.3em]">{eyebrow}</p>
-        <h1 className="mt-4 text-4xl md:text-6xl max-w-3xl">{title}</h1>
+        <h1 className="mt-4 text-3xl sm:text-4xl md:text-6xl max-w-3xl">{title}</h1>
         <p className="mt-5 max-w-2xl opacity-75">{text}</p>
       </div>
     </section>

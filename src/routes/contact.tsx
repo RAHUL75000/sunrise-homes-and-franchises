@@ -20,7 +20,7 @@ function Contact() {
   return (
     <SiteLayout>
       <PageHeader eyebrow="Contact" title="Let's talk about your next move" text="Tell us what you're looking for and our team will get back to you." />
-      <section className="mx-auto max-w-2xl px-6 pt-16 grid sm:grid-cols-3 gap-6 text-sm">
+      <section className="mx-auto max-w-2xl px-4 sm:px-6 pt-12 grid sm:grid-cols-3 gap-6 text-sm">
         <div><p className="text-accent uppercase tracking-widest text-xs font-semibold">Call</p><a href={`tel:${contact.phone}`} className="mt-2 block font-semibold">{contact.phone}</a></div>
         <div><p className="text-accent uppercase tracking-widest text-xs font-semibold">Email</p><a href={`mailto:${contact.email}`} className="mt-2 block font-semibold break-all">{contact.email}</a></div>
         <div><p className="text-accent uppercase tracking-widest text-xs font-semibold">Visit</p><p className="mt-2">{contact.address}</p></div>

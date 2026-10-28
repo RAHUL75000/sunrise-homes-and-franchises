@@ -23,10 +23,10 @@ function Invest() {
   return (
     <SiteLayout>
       <PageHeader eyebrow="Invest" title="Real estate: the surest way to grow your money" text="Growing money easily is hardly possible in other options. Partner with Sunrise Bold Infra and share in the growth." />
-      <section className="mx-auto max-w-7xl px-6 py-20 grid md:grid-cols-3 gap-6">
+      <section className="mx-auto max-w-7xl px-4 sm:px-4 sm:px-6 py-14 md:py-20 grid md:grid-cols-3 gap-6">
         {points.map(([v, t, d]) => (
           <div key={t} className="bg-card shadow-card p-8 rounded">
-            <p className="font-display text-6xl text-sunrise">{v}</p>
+            <p className="font-display text-5xl sm:text-6xl text-sunrise">{v}</p>
             <h3 className="mt-4 text-2xl">{t}</h3>
             <p className="mt-2 text-muted-foreground">{d}</p>
           </div>
