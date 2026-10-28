@@ -11,6 +11,12 @@ const nav = [
 
 export const locations = ["Kalyan", "Bhivandi", "Ulhasnagar", "Titwala", "Ambivali", "Ambarnath"];
 
+export const contact = {
+  phone: "+91 98765 43210",
+  email: "info@sunriseboldinfra.com",
+  address: "Office No. 12, Sunrise Plaza, Station Road, Kalyan (W), Maharashtra 421301",
+};
+
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
@@ -45,6 +51,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div>
             <p className="font-display text-2xl">Sunrise Bold Infra</p>
             <p className="mt-3 text-sm opacity-70">An emerging real estate developer in the Kalyan region, building affordable homes and growth opportunities.</p>
+            <p className="mt-4 text-sm opacity-80">{contact.address}</p>
+            <p className="mt-1 text-sm opacity-80"><a href={`tel:${contact.phone}`}>{contact.phone}</a> · <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
           </div>
           <div>
             <p className="text-accent text-xs uppercase tracking-widest">We build in</p>
